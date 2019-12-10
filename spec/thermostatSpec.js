@@ -61,4 +61,17 @@ describe("Thermostat", () => {
       })
     })
   });
+
+  describe("PowerSaving", () => {
+    it("can be toggled off", () => {
+      testThermostat.togglePowerSaving()
+      expect(testThermostat.powerSaving.active).toEqual(false)
+    });
+
+    it("can be toggled on", () => {
+      testThermostat.togglePowerSaving()
+      testThermostat.togglePowerSaving()
+      expect(testThermostat.powerSaving.active).toEqual(true)
+    });
+  });
 });

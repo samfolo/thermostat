@@ -1,6 +1,6 @@
 var PowerSavingUnit = require('../src/powerSaving')
 
-describe("PowerSaving", () => {
+describe("PowerSavingUnit", () => {
   let testPSUnit = new PowerSavingUnit;
 
   beforeEach(() => {

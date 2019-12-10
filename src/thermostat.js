@@ -1,5 +1,8 @@
+var PowerSavingUnit = require('./powerSaving')
+
 class Thermostat {
-  constructor(minimumTemperature = 10, maximumTemperature = 25, currentTemperature = 20) {
+  constructor(minimumTemperature = 10, maximumTemperature = 25, currentTemperature = 20, powerSaving = new PowerSavingUnit) {
+    this.powerSaving = powerSaving
     this.minimumTemperature = minimumTemperature;
     this.maximumTemperature = maximumTemperature;
     this.currentTemperature = currentTemperature;
@@ -25,6 +28,14 @@ class Thermostat {
     let defaultTemperature = 20;
 
     this.currentTemperature = defaultTemperature;
+  }
+
+  togglePowerSaving() {
+    if (this.powerSaving.active) {
+      this.powerSaving.active = false
+    } else {
+      this.powerSaving.active = true
+    }
   }
 }
 
