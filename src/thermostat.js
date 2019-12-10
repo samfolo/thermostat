@@ -6,7 +6,11 @@ class Thermostat {
   }
 
   increase(num) {
-    this.currentTemperature += num
+    this.currentTemperature += num;
+  }
+
+  decrease(num) {
+    this.currentTemperature -= num;
   }
 }
 
