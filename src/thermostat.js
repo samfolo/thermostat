@@ -8,6 +8,22 @@ class Thermostat {
     this.currentTemperature = currentTemperature;
   }
 
+  getCurrentTemperature() {
+    return this.currentTemperature;
+  }
+
+  getMaximumTemperature() {
+    return this.maximumTemperature
+  }
+
+  getMinimumTemperature() {
+    return this.minimumTemperature
+  }
+
+  powerSavingStatus() {
+    return this.powerSaving.isActive()
+  }
+
   increase(num) {
     if (this.currentTemperature + num > this.maximumTemperature) {
       throw "Cannot exceed maximum temperature";
@@ -44,22 +60,22 @@ class Thermostat {
 
     let lowUsageNums = [];
     let mediumUsageNums = [];
-    
+
     [...Array(32).keys()].forEach(num => {
-      if (num < 18) { 
+      if (num < 18) {
         lowUsageNums.push(num)
-      } else if (num < 25) { 
+      } else if (num < 25) {
         mediumUsageNums.push(num)
       }
     })
-    
+
 
     if (lowUsageNums.includes(this.currentTemperature)) {
       return "low-usage"
     } else if (mediumUsageNums.includes(this.currentTemperature)) {
       return "medium-usage"
-    } else { 
-      return "high-usage" 
+    } else {
+      return "high-usage"
     }
   }
 }

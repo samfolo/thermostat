@@ -3,6 +3,10 @@ class PowerSavingUnit {
     this.active = active
   }
 
+  isActive() {
+    return this.active
+  }
+
   switchOff() {
     this.active = false;
   }

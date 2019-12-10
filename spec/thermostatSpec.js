@@ -10,20 +10,20 @@ describe("Thermostat", () => {
   describe("PowerSaving", () => {
     it("can be toggled off", () => {
       testThermostat.togglePowerSaving()
-      expect(testThermostat.powerSaving.active).toEqual(false)
+      expect(testThermostat.powerSavingStatus()).toEqual(false)
     });
 
     it("can be toggled on", () => {
       testThermostat.togglePowerSaving()
       testThermostat.togglePowerSaving()
-      expect(testThermostat.powerSaving.active).toEqual(true)
+      expect(testThermostat.powerSavingStatus()).toEqual(true)
     });
   });
 
   describe("Temperature", () => {
     describe("Maximum", () => {
       it("has a maximum of 25 when power saving is on", () => {
-        expect(testThermostat.maximumTemperature).toEqual(25)
+        expect(testThermostat.getMaximumTemperature()).toEqual(25)
       });
 
       it("has a maximum of 32 when power saving is off", () => {
@@ -34,20 +34,20 @@ describe("Thermostat", () => {
     });
 
     it("has a minimum of 20", () => {
-      expect(testThermostat.minimumTemperature).toEqual(10);
+      expect(testThermostat.getMinimumTemperature()).toEqual(10);
     });
 
     describe(".increase", () => {
       it("can be increased by 10", () => {
         testThermostat.increase(5)
 
-        expect(testThermostat.currentTemperature).toEqual(25)
+        expect(testThermostat.getCurrentTemperature()).toEqual(25)
       });
 
       it("can be increased by 8", () => {
         testThermostat.increase(3)
 
-        expect(testThermostat.currentTemperature).toEqual(23)
+        expect(testThermostat.getCurrentTemperature()).toEqual(23)
       });
 
       it("cannot be increased more than maximum temperature", () => {
@@ -59,13 +59,13 @@ describe("Thermostat", () => {
       it("can be descreased by 5", () => {
         testThermostat.decrease(5)
 
-        expect(testThermostat.currentTemperature).toEqual(15)
+        expect(testThermostat.getCurrentTemperature()).toEqual(15)
       });
 
       it("can be descreased by 9", () => {
         testThermostat.decrease(9)
 
-        expect(testThermostat.currentTemperature).toEqual(11)
+        expect(testThermostat.getCurrentTemperature()).toEqual(11)
       });
 
       it("cannot be decreased more than minimum temperature", () => {
@@ -78,7 +78,7 @@ describe("Thermostat", () => {
         testThermostat.increase(3);
         testThermostat.reset();
 
-        expect(testThermostat.currentTemperature).toBe(20);
+        expect(testThermostat.getCurrentTemperature()).toBe(20);
       })
     })
   });
@@ -95,7 +95,7 @@ describe("Thermostat", () => {
 
     it("should return 'high-usage' when temperature is 25 or more", () => {
       testThermostat.togglePowerSaving();
-      
+
       testThermostat.increase(7);
       expect(testThermostat.energyUsage()).toEqual("high-usage");
     })

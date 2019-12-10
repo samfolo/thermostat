@@ -8,19 +8,19 @@ describe("PowerSavingUnit", () => {
   });
 
   it("is on by default", () => {
-    expect(testPSUnit.active).toBeTrue();
+    expect(testPSUnit.isActive()).toBeTrue();
   });
 
   it("can be turned off", () => {
     testPSUnit.switchOff();
 
-    expect(testPSUnit.active).toBeFalse();
+    expect(testPSUnit.isActive()).toBeFalse();
   });
 
   it("can be turned on", () => {
     testPSUnit.switchOff();
     testPSUnit.switchOn();
 
-    expect(testPSUnit.active).toBeTrue();
+    expect(testPSUnit.isActive()).toBeTrue();
   });
 });
