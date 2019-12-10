@@ -1,16 +1,24 @@
 class Thermostat {
-  constructor(minumumTemperature = 10, maximumTemperature = 25, currentTemperature = 20) {
-    this.minumumTemperature = minumumTemperature;
+  constructor(minimumTemperature = 10, maximumTemperature = 25, currentTemperature = 20) {
+    this.minimumTemperature = minimumTemperature;
     this.maximumTemperature = maximumTemperature;
     this.currentTemperature = currentTemperature;
   }
 
   increase(num) {
-    this.currentTemperature += num;
+    if (this.currentTemperature + num > this.maximumTemperature) {
+      throw "Cannot exceed maximum temperature";
+    } else {
+      this.currentTemperature += num;
+    };
   }
 
   decrease(num) {
-    this.currentTemperature -= num;
+    if (this.currentTemperature - num < this.minimumTemperature) {
+      throw "Cannot go lower than minimum temperature";
+    } else {
+      this.currentTemperature -= num;
+    }
   }
 }
 
