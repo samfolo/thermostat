@@ -1,7 +1,7 @@
 var Thermostat = require('../src/thermostat.js')
 
 describe("Thermostat", () => {
-  let testThermostat = new Thermostat;
+  let testThermostat;
 
   beforeEach(() => {
     testThermostat = new Thermostat;
@@ -51,5 +51,14 @@ describe("Thermostat", () => {
         expect(() => { testThermostat.decrease(11) }).toThrow("Cannot go lower than minimum temperature");
       });
     });
+
+    describe(".reset", () => {
+      it("sets the thermostat back to 20", () => {
+        testThermostat.increase(3);
+        testThermostat.reset();
+
+        expect(testThermostat.currentTemperature).toBe(20);
+      })
+    })
   });
 });

@@ -20,6 +20,12 @@ class Thermostat {
       this.currentTemperature -= num;
     }
   }
+
+  reset() {
+    let defaultTemperature = 20;
+
+    this.currentTemperature = defaultTemperature;
+  }
 }
 
 module.exports = Thermostat;
