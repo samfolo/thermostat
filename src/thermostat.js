@@ -39,6 +39,29 @@ class Thermostat {
       this.maximumTemperature = 25;
     }
   }
+
+  energyUsage() {
+
+    let lowUsageNums = [];
+    let mediumUsageNums = [];
+    
+    [...Array(32).keys()].forEach(num => {
+      if (num < 18) { 
+        lowUsageNums.push(num)
+      } else if (num < 25) { 
+        mediumUsageNums.push(num)
+      }
+    })
+    
+
+    if (lowUsageNums.includes(this.currentTemperature)) {
+      return "low-usage"
+    } else if (mediumUsageNums.includes(this.currentTemperature)) {
+      return "medium-usage"
+    } else { 
+      return "high-usage" 
+    }
+  }
 }
 
 module.exports = Thermostat;

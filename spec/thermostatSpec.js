@@ -83,4 +83,21 @@ describe("Thermostat", () => {
     })
   });
 
+  describe("energy usage", () => {
+    it("should return 'low-usage' when temperature is less than 18", () => {
+      testThermostat.decrease(5);
+      expect(testThermostat.energyUsage()).toEqual("low-usage");
+    })
+
+    it("should return 'medium-usage' when temperature is less than 25", () => {
+      expect(testThermostat.energyUsage()).toEqual("medium-usage");
+    })
+
+    it("should return 'high-usage' when temperature is 25 or more", () => {
+      testThermostat.togglePowerSaving();
+      
+      testThermostat.increase(7);
+      expect(testThermostat.energyUsage()).toEqual("high-usage");
+    })
+  });
 });
