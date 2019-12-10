@@ -7,13 +7,34 @@ describe("Thermostat", () => {
     testThermostat = new Thermostat;
   });
 
-  describe("Temperature", () => {
-    it("has a minimum of 20 degrees", () => {
-      expect(testThermostat.minimumTemperature).toEqual(10);
+  describe("PowerSaving", () => {
+    it("can be toggled off", () => {
+      testThermostat.togglePowerSaving()
+      expect(testThermostat.powerSaving.active).toEqual(false)
     });
 
-    it("has a maximum of 25 degrees", () => {
-      expect(testThermostat.maximumTemperature).toEqual(25)
+    it("can be toggled on", () => {
+      testThermostat.togglePowerSaving()
+      testThermostat.togglePowerSaving()
+      expect(testThermostat.powerSaving.active).toEqual(true)
+    });
+  });
+
+  describe("Temperature", () => {
+    describe("Maximum", () => {
+      it("has a maximum of 25 when power saving is on", () => {
+        expect(testThermostat.maximumTemperature).toEqual(25)
+      });
+
+      it("has a maximum of 32 when power saving is off", () => {
+        testThermostat.togglePowerSaving()
+
+        expect(() => {testThermostat.increase(10)}).not.toThrowError()
+      })
+    });
+
+    it("has a minimum of 20", () => {
+      expect(testThermostat.minimumTemperature).toEqual(10);
     });
 
     describe(".increase", () => {
@@ -62,16 +83,4 @@ describe("Thermostat", () => {
     })
   });
 
-  describe("PowerSaving", () => {
-    it("can be toggled off", () => {
-      testThermostat.togglePowerSaving()
-      expect(testThermostat.powerSaving.active).toEqual(false)
-    });
-
-    it("can be toggled on", () => {
-      testThermostat.togglePowerSaving()
-      testThermostat.togglePowerSaving()
-      expect(testThermostat.powerSaving.active).toEqual(true)
-    });
-  });
 });
