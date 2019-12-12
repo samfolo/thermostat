@@ -1,4 +1,4 @@
-var PowerSavingUnit = require('./powerSaving')
+// var PowerSavingUnit = require('./powerSaving')
 
 class Thermostat {
   constructor(minimumTemperature = 10, maximumTemperature = 25, currentTemperature = 20, powerSaving = new PowerSavingUnit) {
@@ -53,6 +53,8 @@ class Thermostat {
     } else {
       this.powerSaving.active = true;
       this.maximumTemperature = 25;
+
+      if(this.currentTemperature > 25) { this.currentTemperature = 25 };
     }
   }
 
@@ -80,4 +82,4 @@ class Thermostat {
   }
 }
 
-module.exports = Thermostat;
+// module.exports = Thermostat;

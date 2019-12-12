@@ -71,6 +71,18 @@ describe("Thermostat", () => {
       it("cannot be decreased more than minimum temperature", () => {
         expect(() => { testThermostat.decrease(11) }).toThrow("Cannot go lower than minimum temperature");
       });
+
+      describe("#togglePowerSaving", () => {
+        describe("when called and temperature is above 25", () => {
+          it("brings the value back down to 25", () => {
+            testThermostat.togglePowerSaving();
+            testThermostat.increase(12);
+            testThermostat.togglePowerSaving();
+
+            expect(testThermostat.getCurrentTemperature()).toBe(25);
+          })
+        })
+      });
     });
 
     describe(".reset", () => {

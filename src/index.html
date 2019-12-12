@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron|Rajdhani&display=swap" rel="stylesheet">
+  <link href="../public/css/index.css" type="text/css" rel="stylesheet"/>
+  <title>Document</title>
+</head>
+  <body>
+    <div id="content">
+      <div id="api-ui">
+
+      </div>
+      <div id="thermostat-unit">
+        <div id="controls">
+          <div id="temperature-buttons">
+            <div class="temperature-button-cushion">
+              <div id="up-button">
+                <div id="up-arrow"></div>
+              </div>
+            </div>
+            <div class="temperature-button-cushion">
+              <div id="down-button">
+                <div id="down-arrow"></div>
+              </div>
+            </div>
+          </div>
+          <div id="reset-and-power-saving">
+            <div id="reset-and-power-saving-buttons">
+              <div class="button-and-text">
+                <div class="control-button-cushion"><div class="control-button" id="reset-button"></div></div>
+                <p id="reset-text">RESET</p>
+              </div>
+              <div class="button-and-text">
+                <div class="control-button-cushion"><div class="control-button" id="power-saving-button"></div></div>
+                <p id="power-saving-text">POWER SAVING</p>
+              </div>
+            </div>
+            <div id="power-saving-lcd-aligner-outer">
+              <div id="power-saving-lcd-aligner">
+                <div id="power-saving-lcd">
+                  <div id="power-saving-status"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="meter">
+          <div id="metering">
+            <div id="thermometer-bars">
+              <div id="meter-bars">
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line5"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line5"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line5"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line5"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line"></div>
+                <div class="thermometer-line"></div>
+              </div>
+            </div>
+            <div id="thermometer">
+              <div id="thermometer-fill"></div>
+              <div id="thermometer-base"></div>
+            </div>
+            <div id="thermometer-bars"></div>
+          </div>
+          <div id="usage-lcd">
+            <div id="temperature-in-degrees"></div>
+            <div id="usage-status"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script language="JavaScript"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script src="powerSaving.js"></script>
+    <script src="thermostat.js"></script>
+    <script src="weatherAPI.js"></script>
+  </body>
+</html>
