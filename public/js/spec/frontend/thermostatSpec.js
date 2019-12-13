@@ -1,4 +1,4 @@
-var Thermostat = require('../src/thermostat.js')
+var Thermostat = require('../src/thermostat.js.js.js')
 
 describe("Thermostat", () => {
   let testThermostat;

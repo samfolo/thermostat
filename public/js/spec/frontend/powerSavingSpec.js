@@ -1,4 +1,4 @@
-var PowerSavingUnit = require('../src/powerSaving')
+var PowerSavingUnit = require('../../powerSaving')
 
 describe("PowerSavingUnit", () => {
   let testPSUnit = new PowerSavingUnit;

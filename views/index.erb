@@ -6,14 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Orbitron|Rajdhani&display=swap" rel="stylesheet">
-  <link href="../public/css/index.css" type="text/css" rel="stylesheet"/>
+  <link href="css/index.css" type="text/css" rel="stylesheet"/>
   <title>Document</title>
 </head>
   <body>
     <div id="content">
-      <div id="api-ui">
-
-      </div>
       <div id="thermostat-unit">
         <div id="controls">
           <div id="temperature-buttons">
@@ -26,6 +23,37 @@
               <div id="down-button">
                 <div id="down-arrow"></div>
               </div>
+            </div>
+          </div>
+          <div id="api-ui">
+            <select id="city">
+              <option disabled selected>Please choose a city:</option>
+              <option value="London">London</option>
+              <option value="Manchester">Manchester</option>
+              <option value="Birmingham">Liverpool</option>
+            </select>
+            <div id="api-headings">
+              <div id="small-headings">
+                <div id="wind-speed">
+                  <p>Wind Speed</p>
+                  <div class="api-info-padding">
+                    <span id="api-wind-speed"></span>
+                    <span id="api-wind-speed-ms"></span>
+                  </div>
+                  
+                </div>
+                <div id="forecast">
+                  <p>Temperature</p>
+                  <div class="api-info-padding">
+                      <div id="api-forecast"></div>
+                  </div>
+                </div>
+              </div>
+              <div id="temperature">
+                  <p>Forecast</p>
+                <div id="current-city-temp"></div>
+              </div>
+              
             </div>
           </div>
           <div id="reset-and-power-saving">
@@ -90,9 +118,9 @@
       </div>
     </div>
     <script language="JavaScript"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
-    <script type="text/javascript" src="jquery.js"></script>
-    <script src="powerSaving.js"></script>
-    <script src="thermostat.js"></script>
-    <script src="weatherAPI.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/powerSaving.js"></script>
+    <script src="/js/thermostat.js"></script>
+    <script src="/js/weatherAPI.js"></script>
   </body>
 </html>
